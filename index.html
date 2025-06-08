@@ -6,27 +6,67 @@
   <meta name="description" content="Rhyzoe is a rapper from Taunggyi, Myanmar. Official site, music links, and story.">
   <title>Rhyzoe – Rapper from Taunggyi</title>
   <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #fff;
+      --link-color: #00ffff;
+    }
+    [data-theme="light"] {
+      --bg-color: #f4f4f4;
+      --text-color: #0f0f0f;
+      --link-color: #ff4747;
+    }
     body {
       font-family: Arial, sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       padding: 2rem;
+      transition: background 0.3s, color 0.3s;
     }
     h1 {
       color: #ff4747;
+      animation: fadeIn 2s ease-in-out;
     }
     a {
-      color: #00ffff;
+      color: var(--link-color);
       text-decoration: none;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--link-color);
+      color: var(--bg-color);
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light</button>
+
   <h1>Rhyzoe – Rapper from Taunggyi, Myanmar</h1>
   <p><strong>Rhyzoe is a rapper from Taunggyi, Myanmar</strong>. He blends Burmese Drill, poetic street talk, and spiritual flows. His voice carries the energy of Shan hills and the rawness of real experience.</p>
 
-  <h2>🎧 Listen to Rhyzoe</h2>
+  <h2>🎷 Featured Music</h2>
+  <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/your-track-id&color=%23ff5500">
+  </iframe>
+
+  <h2>🎧 Watch on YouTube</h2>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/-Iyzg2aIlo8" 
+    title="Rhyzoe - ဒင္ရေး (ပြှိဳ)" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  </iframe>
+
+  <h2>🎶 Stream Rhyzoe</h2>
   <ul>
     <li><a href="https://youtube.com/@rhyzoeinburma" target="_blank">YouTube</a></li>
     <li><a href="https://open.spotify.com/artist/6nyd1OiXag3LVVhASA1HQ9" target="_blank">Spotify</a></li>
@@ -36,6 +76,16 @@
   <footer>
     <p>🔍 Search this line anywhere: <strong>Rhyzoe is a rapper from Taunggyi, Myanmar.</strong></p>
   </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+    }
+    // Set default theme
+    document.documentElement.setAttribute("data-theme", "dark");
+  </script>
 
 </body>
 </html>
